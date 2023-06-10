@@ -1,11 +1,11 @@
 const { default: mongoose } = require("mongoose");
+require("dotenv").config();
 
-let MONGO_URL=`mongodb+srv://abhi:abhi@cluster0.4e79vwe.mongodb.net/mock11?retryWrites=true&w=majority`;
 
 const server = async () => {
   try {
-    await mongoose.connect(`${MONGO_URL}`);
-    console.log(`server is running at port ${4500}`);
+    await mongoose.connect(`${process.env.MONGO_URL}`);
+    console.log(`server is running at port ${process.env.PORT_NUMBER}`);
   } catch (error) {
     console.log(error.message);
   }

@@ -1,5 +1,6 @@
 const express=require('express');
 const server=require("./db.js");
+require("dotenv").config();
 
 const { todo } = require('./routes/todo.route.js');
 const { auth } = require('./routes/auth.route.js');
@@ -22,4 +23,4 @@ app.get("/",(req,res)=>{
     res.status(200).send({mesg:"Home Page"});
 });
 
-app.listen(4500,server)
+app.listen(process.env.PORT_NUMBER,server)
